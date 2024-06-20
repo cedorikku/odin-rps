@@ -31,7 +31,7 @@ function getHumanChoice() {
 // has winner announcement
 function playRound(humanChoice, computerChoice) {
     // 1. Make player choice case insensitive
-    humanChoice.toLowerCase();
+    const humanChoice = humanChoice.toLowerCase();
     // 2. Initialize score from 0
     // 3. Compare player's answer to computer
     // 4. Show result
