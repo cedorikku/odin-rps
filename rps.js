@@ -25,6 +25,9 @@ function getHumanChoice() {
     // 1. Prompt user for answer
     return window.prompt("Rock, Paper, Scissors!");
 }
+    
+// Initialize score from 0
+let playerScore, computerScore = 0;
 
 // Round by round gameplay
 // tracks score everytime
@@ -32,8 +35,8 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
     // 1. Make player choice case insensitive
     const humanChoice = humanChoice.toLowerCase();
-    // 2. Initialize score from 0
     // 3. Compare player's answer to computer
+    
     // 4. Show result
     // 5. Update score
 }
