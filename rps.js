@@ -20,3 +20,12 @@ function getComputerChoice() {
 }
 
 let computerChoice = getComputerChoice();
+
+// Human choice
+// based on the prompt get rock, paper, or scissors
+function getHumanChoice() {
+    // 1. Prompt user for answer
+    return window.prompt("Rock, Paper, Scissors!");
+}
+
+let humanChoice = getHumanChoice();
