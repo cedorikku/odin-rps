@@ -38,18 +38,18 @@ function playRound(humanChoice, computerChoice) {
     // 2. Compare player's answer to computer
     if (humanChoice === "rock") {
         if (computerChoice === "rock") { console.log(`It's a tie! Rock Rock`) }
-        if (computerChoice === "paper") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`) }
-        if (computerChoice === "scissors") { console.log(`You win! Your ${humanChoice} beats their ${computerChoice}`) }
+        if (computerChoice === "paper") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`); computerScore++; }
+        if (computerChoice === "scissors") { console.log(`You win! Your ${humanChoice} beats their ${computerChoice}`); humanScore++;}
     }
     else if (humanChoice === "paper") {
         if (computerChoice === "paper") { console.log(`It's a tie! Paper Paper`) }
-        if (computerChoice === "scissosrs") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`) }
-        if (computerChoice === "rock") { console.log(`You win! Your ${humanChoice} beats their ${computerChoice}`) }
+        if (computerChoice === "scissosrs") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`); computerScore++; }
+        if (computerChoice === "rock") { console.log(`You win! Your ${humanChoice} beats their ${computerChoice}`); humanScore++; }
     }
     else if (humanChoice === "scissors") {
         if (computerChoice === "scissors") { console.log(`It's a tie! Scissors Scissors`) }
-        if (computerChoice === "rock") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`) }
-        if (computerChoice === "paper") { console.log(`You win! Your ${humanChoice} beats their ${computerChoice}`) }
+        if (computerChoice === "rock") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`); computerScore++; }
+        if (computerChoice === "paper") { console.log(`You win! Your ${humanChoice} beats their ${computerChoice}`); humanScore++; }
     }
     else {
         console.info("Player choice is invalid");
