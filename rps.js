@@ -19,8 +19,6 @@ function getComputerChoice() {
     }
 }
 
-let computerChoice = getComputerChoice();
-
 // Human choice
 // based on the prompt get rock, paper, or scissors
 function getHumanChoice() {
@@ -28,4 +26,18 @@ function getHumanChoice() {
     return window.prompt("Rock, Paper, Scissors!");
 }
 
-let humanChoice = getHumanChoice();
+// Round by round gameplay
+// tracks score everytime
+// has winner announcement
+function playRound() {
+    // 1. Make player choice case insensitive
+    // 2. Initialize score from 0
+    // 3. Compare player's answer to computer
+    // 4. Show result
+    // 5. Update score
+}
+
+const computerChoice = getComputerChoice();
+const humanChoice = getHumanChoice();
+
+playRound(humanChoice, computerChoice);
