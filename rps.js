@@ -37,6 +37,8 @@ function playRound(humanChoice, computerChoice) {
     // 1. Make player choice case insensitive
     humanChoice = humanChoice.toLowerCase();
     // 2. Compare player's answer to computer
+    // 3. Show result
+    // 4. Update score
     if (humanChoice === "rock") {
         if (computerChoice === "rock") { console.log(`It's a tie! Rock Rock`) }
         if (computerChoice === "paper") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`); computerScore++; }
@@ -55,8 +57,6 @@ function playRound(humanChoice, computerChoice) {
     else {
         console.info("Player choice is invalid");
     }
-    // 3. Show result
-    // 4. Update score
 }
 
 const computerSelection = getComputerChoice();
