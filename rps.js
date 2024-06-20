@@ -34,11 +34,28 @@ let playerScore, computerScore = 0;
 // has winner announcement
 function playRound(humanChoice, computerChoice) {
     // 1. Make player choice case insensitive
-    const humanChoice = humanChoice.toLowerCase();
-    // 3. Compare player's answer to computer
-    
-    // 4. Show result
-    // 5. Update score
+    humanChoice = humanChoice.toLowerCase();
+    // 2. Compare player's answer to computer
+    if (humanChoice === "rock") {
+        if (computerChoice === "rock") { console.log(`It's a tie! Rock Rock`) }
+        if (computerChoice === "paper") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`) }
+        if (computerChoice === "scissors") { console.log(`You win! Your ${humanChoice} beats their ${computerChoice}`) }
+    }
+    else if (humanChoice === "paper") {
+        if (computerChoice === "paper") { console.log(`It's a tie! Paper Paper`) }
+        if (computerChoice === "scissosrs") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`) }
+        if (computerChoice === "rock") { console.log(`You win! Your ${humanChoice} beats their ${computerChoice}`) }
+    }
+    else if (humanChoice === "scissors") {
+        if (computerChoice === "scissors") { console.log(`It's a tie! Scissors Scissors`) }
+        if (computerChoice === "rock") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`) }
+        if (computerChoice === "paper") { console.log(`You win! Your ${humanChoice} beats their ${computerChoice}`) }
+    }
+    else {
+        console.info("Player choice is invalid");
+    }
+    // 3. Show result
+    // 4. Update score
 }
 
 const computerSelection = getComputerChoice();
