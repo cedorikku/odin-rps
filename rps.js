@@ -29,15 +29,16 @@ function getHumanChoice() {
 // Round by round gameplay
 // tracks score everytime
 // has winner announcement
-function playRound() {
+function playRound(humanChoice, computerChoice) {
     // 1. Make player choice case insensitive
+
     // 2. Initialize score from 0
     // 3. Compare player's answer to computer
     // 4. Show result
     // 5. Update score
 }
 
-const computerChoice = getComputerChoice();
-const humanChoice = getHumanChoice();
+const computerSelection = getComputerSelection();
+const humanSelection = getHumanSelection();
 
-playRound(humanChoice, computerChoice);
+playRound(humanSelection, computerSelection);
