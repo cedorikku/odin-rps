@@ -75,33 +75,54 @@ function playRound(playerChoice, computerChoice) {
     else {
         console.error("ERROR! Choice went wrong.");
     }
+
+    clearResult(2400);
+
+    // Check to see if someone already won the game
+    if (playerScore === 5 || computerScore === 5) {
+        if (playerScore > computerScore) { result.textContent = "GAME WON"; }
+        else { result.textContent = "GAME LOST"; }
+
+        clearResult(4000);
+        disableControls(4000);
+    }
+}
+
+function disableControls(delay) {
+    const buttons =  document.querySelectorAll('button');
+
+    buttons.forEach((button) => {
+        button.disabled = true;
+    });
+
+    setTimeout(() => {
+        buttons.forEach((button) => {
+            button.disabled = false;
+        });
+        resetScore();
+    }, delay);
 }
 
 // Display round result
 const result = document.querySelector('#result');
 let lastTimeout;
 function showLose(playerChoice, computerChoice) {
-    clearTimeout(lastTimeout);
     result.textContent = `You lose! Their ${computerChoice} beats your ${playerChoice}`;
-    clearResult();
 }
 
 function showWin(playerChoice, computerChoice) {
-    clearTimeout(lastTimeout);
     result.textContent = `You win! Your ${playerChoice} beats their ${computerChoice}`;
-    clearResult();
 }
 
 function showTie() {
-    clearTimeout(lastTimeout);
     result.textContent = `It's a tie!`;
-    clearResult();
 }
 
-function clearResult() {
+function clearResult(delay) {
+    clearTimeout(lastTimeout);
     lastTimeout = setTimeout( () => {
         result.textContent = '';
-    }, 2400);
+    }, delay);
 }
 
 // Human choice
