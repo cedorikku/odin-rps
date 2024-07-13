@@ -20,8 +20,35 @@ function getComputerChoice() {
 }
 
 // Initialize score from 0
-let playerScore = 0; 
-let computerScore = 0;
+let playerScore, computerScore;
+
+window.addEventListener('DOMContentLoaded', resetScore);
+
+function resetScore() {
+    playerScore = 0; 
+    computerScore = 0;
+    updateScore("reset");
+}
+
+const scores = document.getElementsByTagName('span');
+
+function updateScore(action) {
+    switch(action) {
+        case "reset":
+            scores[0].textContent = 0;
+            scores[1].textContent = 0;
+            break;
+        case "win":
+            scores[0].textContent = ++playerScore;
+            break;
+        case "lose":
+            scores[1].textContent = ++computerScore;
+            break;
+        default:
+            console.error("ERROR! Something went wrong.");
+            break;
+    }
+}
 
 // Round by round gameplay
 // tracks score everytime
@@ -34,18 +61,18 @@ function playRound(humanChoice, computerChoice) {
     // 4. Update score
     if (humanChoice === "rock") {
         if (computerChoice === "rock") { showTie(humanChoice); }
-        else if (computerChoice === "paper") { showLose(humanChoice, computerChoice); computerScore++; }
-        else if (computerChoice === "scissors") { showWin(humanChoice, computerChoice); playerScore++; }
+        else if (computerChoice === "paper") { showLose(humanChoice, computerChoice); updateScore("lose"); }
+        else if (computerChoice === "scissors") { showWin(humanChoice, computerChoice); updateScore("win"); }
     }
     else if (humanChoice === "paper") {
         if (computerChoice === "paper") { showTie(humanChoice); }
-        else if (computerChoice === "scissors") { showLose(humanChoice, computerChoice); computerScore++; }
-        else if (computerChoice === "rock") { showWin(humanChoice, computerChoice); playerScore++; }
+        else if (computerChoice === "scissors") { showLose(humanChoice, computerChoice); updateScore("lose"); }
+        else if (computerChoice === "rock") { showWin(humanChoice, computerChoice); updateScore("win"); }
     }
     else if (humanChoice === "scissors") {
         if (computerChoice === "scissors") { showTie(humanChoice); }
-        else if (computerChoice === "rock") { showLose(humanChoice, computerChoice); computerScore++; }
-        else if (computerChoice === "paper") { showWin(humanChoice, computerChoice); playerScore++; }
+        else if (computerChoice === "rock") { showLose(humanChoice, computerChoice); updateScore("lose"); }
+        else if (computerChoice === "paper") { showWin(humanChoice, computerChoice); updateScore("win"); }
     }
     else {
         console.error("ERROR! Something went wrong.");
