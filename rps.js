@@ -19,13 +19,6 @@ function getComputerChoice() {
     }
 }
 
-// Human choice
-// based on the prompt get rock, paper, or scissors
-function getHumanChoice() {
-    // 1. Prompt user for answer
-    return window.prompt("Rock, Paper, Scissors!");
-}
-    
 // Initialize score from 0
 let playerScore = 0; 
 let computerScore = 0;
@@ -58,3 +51,13 @@ function playRound(humanChoice, computerChoice) {
         console.info("Player choice is invalid");
     }
 }
+
+// Human choice
+// based on the buttons get rock, paper, or scissors
+const choices = document.querySelector('#choices');
+choices.addEventListener('click', (e) => {
+    let computerSelection = getComputerChoice();
+    let humanSelection = e.target.textContent;
+
+    playRound(humanSelection, computerSelection);
+});
