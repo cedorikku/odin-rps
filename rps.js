@@ -81,25 +81,29 @@ function playRound(humanChoice, computerChoice) {
 
 // Display round result
 const result = document.querySelector('#result');
+let lastTimeout;
 function showLose(humanChoice, computerChoice) {
+    clearTimeout(lastTimeout);
     result.textContent = `You lose! Their ${computerChoice} beats your ${humanChoice}`;
     clearResult();
 }
 
 function showWin(humanChoice, computerChoice) {
+    clearTimeout(lastTimeout);
     result.textContent = `You win! Your ${humanChoice} beats their ${computerChoice}`;
     clearResult();
 }
 
 function showTie(selection) {
+    clearTimeout(lastTimeout);
     result.textContent = `It's a tie! ${selection} ${selection}`;
     clearResult();
 }
 
 function clearResult() {
-    setTimeout( () => {
+    lastTimeout = setTimeout( () => {
         result.textContent = '';
-    }, 2500);
+    }, 2400);
 }
 
 // Human choice
