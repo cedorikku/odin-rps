@@ -33,23 +33,37 @@ function playRound(humanChoice, computerChoice) {
     // 3. Show result
     // 4. Update score
     if (humanChoice === "rock") {
-        if (computerChoice === "rock") { console.log(`It's a tie! Rock Rock`) }
-        if (computerChoice === "paper") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`); computerScore++; }
-        if (computerChoice === "scissors") { console.log(`You win! Your ${humanChoice} beats their ${computerChoice}`); playerScore++;}
+        if (computerChoice === "rock") { showTie(humanChoice); }
+        else if (computerChoice === "paper") { showLose(humanChoice, computerChoice); computerScore++; }
+        else if (computerChoice === "scissors") { showWin(humanChoice, computerChoice); playerScore++; }
     }
     else if (humanChoice === "paper") {
-        if (computerChoice === "paper") { console.log(`It's a tie! Paper Paper`) }
-        if (computerChoice === "scissosrs") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`); computerScore++; }
-        if (computerChoice === "rock") { console.log(`You win! Your ${humanChoice} beats their ${computerChoice}`); playerScore++; }
+        if (computerChoice === "paper") { showTie(humanChoice); }
+        else if (computerChoice === "scissors") { showLose(humanChoice, computerChoice); computerScore++; }
+        else if (computerChoice === "rock") { showWin(humanChoice, computerChoice); playerScore++; }
     }
     else if (humanChoice === "scissors") {
-        if (computerChoice === "scissors") { console.log(`It's a tie! Scissors Scissors`) }
-        if (computerChoice === "rock") { console.log(`You lose! Their ${computerChoice} beats your ${humanChoice}`); computerScore++; }
-        if (computerChoice === "paper") { console.log(`You win! Your ${humanChoice} beats their ${computerChoice}`); playerScore++; }
+        if (computerChoice === "scissors") { showTie(humanChoice); }
+        else if (computerChoice === "rock") { showLose(humanChoice, computerChoice); computerScore++; }
+        else if (computerChoice === "paper") { showWin(humanChoice, computerChoice); playerScore++; }
     }
     else {
-        console.info("Player choice is invalid");
+        console.error("ERROR! Something went wrong.");
     }
+}
+
+// Display round result
+const result = document.querySelector('#result');
+function showLose(humanChoice, computerChoice) {
+    result.textContent = `You lose! Their ${computerChoice} beats your ${humanChoice}`;
+}
+
+function showWin(humanChoice, computerChoice) {
+    result.textContent = `You win! Your ${humanChoice} beats their ${computerChoice}`;
+}
+
+function showTie(selection) {
+    result.textContent = `It's a tie! ${selection} ${selection}`;
 }
 
 // Human choice
