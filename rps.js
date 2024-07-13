@@ -15,7 +15,7 @@ function getComputerChoice() {
         case 3:
             return "scissors";
         default:
-            console.error("Something went wrong!");
+            console.error("ERROR! Computer's choice went wrong!");
     }
 }
 
@@ -53,50 +53,50 @@ function updateScore(action) {
 // Round by round gameplay
 // tracks score everytime
 // has winner announcement
-function playRound(humanChoice, computerChoice) {
+function playRound(playerChoice, computerChoice) {
     // 1. Make player choice case insensitive
-    humanChoice = humanChoice.toLowerCase();
+    playerChoice = playerChoice.toLowerCase();
     // 2. Compare player's answer to computer
     // 3. Show result
     // 4. Update score
-    if (humanChoice === "rock") {
-        if (computerChoice === "rock") { showTie(humanChoice); }
-        else if (computerChoice === "paper") { showLose(humanChoice, computerChoice); updateScore("lose"); }
-        else if (computerChoice === "scissors") { showWin(humanChoice, computerChoice); updateScore("win"); }
+    if (playerChoice === computerChoice) { showTie(); }
+    else if (playerChoice === "rock") {
+        if (computerChoice === "paper") { showLose(playerChoice, computerChoice); updateScore("lose"); }
+        else { showWin(playerChoice, computerChoice); updateScore("win"); }
     }
-    else if (humanChoice === "paper") {
-        if (computerChoice === "paper") { showTie(humanChoice); }
-        else if (computerChoice === "scissors") { showLose(humanChoice, computerChoice); updateScore("lose"); }
-        else if (computerChoice === "rock") { showWin(humanChoice, computerChoice); updateScore("win"); }
+    else if (playerChoice === "paper") {
+        if (computerChoice === "scissors") { showLose(playerChoice, computerChoice); updateScore("lose"); }
+        else { showWin(playerChoice, computerChoice); updateScore("win"); }
     }
-    else if (humanChoice === "scissors") {
-        if (computerChoice === "scissors") { showTie(humanChoice); }
-        else if (computerChoice === "rock") { showLose(humanChoice, computerChoice); updateScore("lose"); }
-        else if (computerChoice === "paper") { showWin(humanChoice, computerChoice); updateScore("win"); }
+    else if (playerChoice === "scissors") {
+        if (computerChoice === "rock") { showLose(playerChoice, computerChoice); updateScore("lose"); }
+        else { showWin(playerChoice, computerChoice); updateScore("win"); }
     }
     else {
-        console.error("ERROR! Something went wrong.");
+        console.error("ERROR! Choice went wrong.");
+        console.log(playerChoice);
+        console.log(computerChoice);
     }
 }
 
 // Display round result
 const result = document.querySelector('#result');
 let lastTimeout;
-function showLose(humanChoice, computerChoice) {
+function showLose(playerChoice, computerChoice) {
     clearTimeout(lastTimeout);
-    result.textContent = `You lose! Their ${computerChoice} beats your ${humanChoice}`;
+    result.textContent = `You lose! Their ${computerChoice} beats your ${playerChoice}`;
     clearResult();
 }
 
-function showWin(humanChoice, computerChoice) {
+function showWin(playerChoice, computerChoice) {
     clearTimeout(lastTimeout);
-    result.textContent = `You win! Your ${humanChoice} beats their ${computerChoice}`;
+    result.textContent = `You win! Your ${playerChoice} beats their ${computerChoice}`;
     clearResult();
 }
 
-function showTie(selection) {
+function showTie() {
     clearTimeout(lastTimeout);
-    result.textContent = `It's a tie! ${selection} ${selection}`;
+    result.textContent = `It's a tie!`;
     clearResult();
 }
 
