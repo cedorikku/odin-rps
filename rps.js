@@ -58,29 +58,3 @@ function playRound(humanChoice, computerChoice) {
         console.info("Player choice is invalid");
     }
 }
-
-function playGame(rounds = 5) {
-    // 1. Go through the rounds n times
-    for (let i = 1; i <= rounds; i++) {
-        console.log(`============ Round ${i} ============`);
-        let computerSelection = getComputerChoice();
-        let humanSelection = getHumanChoice();
-
-        playRound(humanSelection, computerSelection);
-
-        console.log(`Player: ${playerScore}`)
-        console.log(`Computer: ${computerScore}`)
-    }
-    // 2. Show end result
-    if (playerScore > computerScore) {
-        console.log(`You win! The computer lost.`)
-    }
-    else if (computerScore > playerScore) {
-        console.log(`You lost! The computer won.`)
-    }
-    else {
-        console.log(`It's a tie between you and the computer!`)
-    }
-}
-
-playGame(5);
