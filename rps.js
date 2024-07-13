@@ -74,8 +74,6 @@ function playRound(playerChoice, computerChoice) {
     }
     else {
         console.error("ERROR! Choice went wrong.");
-        console.log(playerChoice);
-        console.log(computerChoice);
     }
 }
 
