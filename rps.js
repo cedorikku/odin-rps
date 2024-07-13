@@ -56,14 +56,23 @@ function playRound(humanChoice, computerChoice) {
 const result = document.querySelector('#result');
 function showLose(humanChoice, computerChoice) {
     result.textContent = `You lose! Their ${computerChoice} beats your ${humanChoice}`;
+    clearResult();
 }
 
 function showWin(humanChoice, computerChoice) {
     result.textContent = `You win! Your ${humanChoice} beats their ${computerChoice}`;
+    clearResult();
 }
 
 function showTie(selection) {
     result.textContent = `It's a tie! ${selection} ${selection}`;
+    clearResult();
+}
+
+function clearResult() {
+    setTimeout( () => {
+        result.textContent = '';
+    }, 2500);
 }
 
 // Human choice
