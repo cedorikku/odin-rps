@@ -1,6 +1,3 @@
-console.log("hello world!");
-console.clear();
-
 // Random number between 1-3
 // based on the number get rock, paper, or scissors
 function getComputerChoice() {
