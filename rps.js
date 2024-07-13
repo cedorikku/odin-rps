@@ -111,7 +111,7 @@ function clearResult() {
 const choices = document.querySelector('#choices');
 choices.addEventListener('click', (e) => {
     let computerSelection = getComputerChoice();
-    let humanSelection = e.target.textContent;
+    let humanSelection = e.target.getAttribute("data-gesture");
 
     playRound(humanSelection, computerSelection);
 });
