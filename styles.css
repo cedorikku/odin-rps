@@ -76,3 +76,9 @@ body > h1 {
   filter:brightness(80%);
   background: none;
 }
+
+#result {
+  margin: 12px 0;
+  text-align: center;
+  font-weight: 500;
+}
