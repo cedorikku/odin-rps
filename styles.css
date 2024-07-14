@@ -8,6 +8,46 @@ body {
   font-size: 24px;
 }
 
+.scores-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 24px auto;
+  padding: 24px 0;
+  border: 2px solid #000;
+  border-radius: 12px;
+  gap: 12px;
+  font-size: 0.8em;
+}
+
+.scores-container .scores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.scores-container .scores myborder {
+  font-size: 1.5em;
+  user-select: none;
+}
+
+.scores-container .scores .scorebox div {
+  font-size: 0.8em;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.scores-container .scores .scorebox span {
+  display: block;
+  width: 2em;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 2em;
+  font-weight: 700;
+  border: 2px solid #000;
+}
+
 button {
   font-size: 1.5em;
 }
